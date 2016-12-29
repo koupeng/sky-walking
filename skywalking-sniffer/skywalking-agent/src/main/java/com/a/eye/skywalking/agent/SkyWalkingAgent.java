@@ -31,6 +31,16 @@ public class SkyWalkingAgent {
 
     private static ILog logger;
 
+    /**
+     * 作为JavaAgent代理运行
+     * 该方法在main方法之前运行，与main方法运行在同一个JVM中
+     * 被同一个System ClassLoader加载
+     * 被统一的安全策略和上下文管理
+     * 用法：java -javaagent:JAVAAGENT1 -javaagent:JAVAAGENT2 -jar main.jar
+     * @param agentArgs
+     * @param instrumentation
+     * @throws PluginException
+     */
     public static void premain(String agentArgs, Instrumentation instrumentation) throws PluginException {
         logger = LogManager.getLogger(SkyWalkingAgent.class);
 
